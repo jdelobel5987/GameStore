@@ -47,7 +47,7 @@ List<GameDto> games = [
 // Endpoints //
 ///////////////
 
-app.MapGet("/", () => "Hello World!")
+app.MapGet("/", () => "Welcome to the Game Store API!\nThis API allows you to manage a collection of video games, including creating, retrieving, updating, and deleting game entries.\nAccess the /swagger endpoint for interactive API documentation and testing.")
    .WithSummary("Root endpoint")
    .WithDescription("This endpoint returns a simple greeting message to confirm that the API is up and running.")
 //    .WithTags("Root")
