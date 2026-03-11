@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: GameStore.Api.Endpoints
+  commentId: N:GameStore.Api.Endpoints
+  id: GameStore.Api.Endpoints
+  children:
+  - GameStore.Api.Endpoints.GamesEndpoints
+  langs:
+  - csharp
+  - vb
+  name: GameStore.Api.Endpoints
+  nameWithType: GameStore.Api.Endpoints
+  fullName: GameStore.Api.Endpoints
+  type: Namespace
+  assemblies:
+  - GameStore.Api
+references:
+- uid: GameStore.Api.Endpoints.GamesEndpoints
+  commentId: T:GameStore.Api.Endpoints.GamesEndpoints
+  href: GameStore.Api.Endpoints.GamesEndpoints.html
+  name: GamesEndpoints
+  nameWithType: GamesEndpoints
+  fullName: GameStore.Api.Endpoints.GamesEndpoints

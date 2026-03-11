@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: GameStore.Api.Dtos
+  commentId: N:GameStore.Api.Dtos
+  id: GameStore.Api.Dtos
+  children:
+  - GameStore.Api.Dtos.CreateGameDto
+  - GameStore.Api.Dtos.GameDto
+  - GameStore.Api.Dtos.UpdateGameDto
+  langs:
+  - csharp
+  - vb
+  name: GameStore.Api.Dtos
+  nameWithType: GameStore.Api.Dtos
+  fullName: GameStore.Api.Dtos
+  type: Namespace
+  assemblies:
+  - GameStore.Api
+references:
+- uid: GameStore.Api.Dtos.CreateGameDto
+  commentId: T:GameStore.Api.Dtos.CreateGameDto
+  parent: GameStore.Api.Dtos
+  href: GameStore.Api.Dtos.CreateGameDto.html
+  name: CreateGameDto
+  nameWithType: CreateGameDto
+  fullName: GameStore.Api.Dtos.CreateGameDto
+- uid: GameStore.Api.Dtos.GameDto
+  commentId: T:GameStore.Api.Dtos.GameDto
+  href: GameStore.Api.Dtos.GameDto.html
+  name: GameDto
+  nameWithType: GameDto
+  fullName: GameStore.Api.Dtos.GameDto
+- uid: GameStore.Api.Dtos.UpdateGameDto
+  commentId: T:GameStore.Api.Dtos.UpdateGameDto
+  parent: GameStore.Api.Dtos
+  href: GameStore.Api.Dtos.UpdateGameDto.html
+  name: UpdateGameDto
+  nameWithType: UpdateGameDto
+  fullName: GameStore.Api.Dtos.UpdateGameDto
+- uid: GameStore.Api.Dtos
+  commentId: N:GameStore.Api.Dtos
+  href: GameStore.html
+  name: GameStore.Api.Dtos
+  nameWithType: GameStore.Api.Dtos
+  fullName: GameStore.Api.Dtos
+  spec.csharp:
+  - uid: GameStore
+    name: GameStore
+    href: GameStore.html
+  - name: .
+  - uid: GameStore.Api
+    name: Api
+    href: GameStore.Api.html
+  - name: .
+  - uid: GameStore.Api.Dtos
+    name: Dtos
+    href: GameStore.Api.Dtos.html
+  spec.vb:
+  - uid: GameStore
+    name: GameStore
+    href: GameStore.html
+  - name: .
+  - uid: GameStore.Api
+    name: Api
+    href: GameStore.Api.html
+  - name: .
+  - uid: GameStore.Api.Dtos
+    name: Dtos
+    href: GameStore.Api.Dtos.html

@@ -3,6 +3,27 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
+#######################################
+### Custom ignores for this project ###
+#######################################
+
+# API tests
+games.http
+
+# Secrets
+appsettings.Development.json
+
+# unnecessary files / directories
+arborescence.txt
+image/README/
+
+# docfx
+docs/_site/
+
+########################################################
+### Auto generated ignores from dotnet new gitignore ###
+########################################################
+
 # dotenv files
 .env
 
@@ -480,17 +501,3 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
-
-#######################################
-### Custom ignores for this project ###
-#######################################
-
-# API tests
-games.http
-
-# Secrets
-appsettings.Development.json
-
-# unnecessary files / directories
-arborescence.txt
-image/README/

@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: GameStore.Api.Services
+  commentId: N:GameStore.Api.Services
+  id: GameStore.Api.Services
+  children:
+  - GameStore.Api.Services.GameService
+  langs:
+  - csharp
+  - vb
+  name: GameStore.Api.Services
+  nameWithType: GameStore.Api.Services
+  fullName: GameStore.Api.Services
+  type: Namespace
+  assemblies:
+  - GameStore.Api
+references:
+- uid: GameStore.Api.Services.GameService
+  commentId: T:GameStore.Api.Services.GameService
+  href: GameStore.Api.Services.GameService.html
+  name: GameService
+  nameWithType: GameService
+  fullName: GameStore.Api.Services.GameService

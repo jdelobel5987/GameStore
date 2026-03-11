@@ -1,0 +1,30 @@
+### YamlMime:TableOfContent
+items:
+- uid: GameStore.Api.Dtos
+  name: GameStore.Api.Dtos
+  type: Namespace
+  items:
+  - uid: GameStore.Api.Dtos.CreateGameDto
+    name: CreateGameDto
+    type: Class
+  - uid: GameStore.Api.Dtos.GameDto
+    name: GameDto
+    type: Class
+  - uid: GameStore.Api.Dtos.UpdateGameDto
+    name: UpdateGameDto
+    type: Class
+- uid: GameStore.Api.Endpoints
+  name: GameStore.Api.Endpoints
+  type: Namespace
+  items:
+  - uid: GameStore.Api.Endpoints.GamesEndpoints
+    name: GamesEndpoints
+    type: Class
+- uid: GameStore.Api.Services
+  name: GameStore.Api.Services
+  type: Namespace
+  items:
+  - uid: GameStore.Api.Services.GameService
+    name: GameService
+    type: Class
+memberLayout: SamePage

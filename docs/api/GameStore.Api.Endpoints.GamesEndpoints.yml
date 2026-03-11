@@ -1,0 +1,760 @@
+### YamlMime:ManagedReference
+items:
+- uid: GameStore.Api.Endpoints.GamesEndpoints
+  commentId: T:GameStore.Api.Endpoints.GamesEndpoints
+  id: GamesEndpoints
+  parent: GameStore.Api.Endpoints
+  children:
+  - GameStore.Api.Endpoints.GamesEndpoints.CreateGame(GameStore.Api.Dtos.CreateGameDto)
+  - GameStore.Api.Endpoints.GamesEndpoints.DeleteGame(System.Int32)
+  - GameStore.Api.Endpoints.GamesEndpoints.GetGameById(System.Int32)
+  - GameStore.Api.Endpoints.GamesEndpoints.GetGames
+  - GameStore.Api.Endpoints.GamesEndpoints.GetRoot
+  - GameStore.Api.Endpoints.GamesEndpoints.MapGamesEndpoints(Microsoft.AspNetCore.Builder.WebApplication)
+  - GameStore.Api.Endpoints.GamesEndpoints.UpdateGame(System.Int32,GameStore.Api.Dtos.UpdateGameDto)
+  langs:
+  - csharp
+  - vb
+  name: GamesEndpoints
+  nameWithType: GamesEndpoints
+  fullName: GameStore.Api.Endpoints.GamesEndpoints
+  type: Class
+  source:
+    remote:
+      path: GameStore.Api/Endpoints/GamesEndpoints.cs
+      branch: main
+      repo: https://github.com/jdelobel5987/GameStore.git
+    id: GamesEndpoints
+    path: ../GameStore.Api/Endpoints/GamesEndpoints.cs
+    startLine: 8
+  assemblies:
+  - GameStore.Api
+  namespace: GameStore.Api.Endpoints
+  summary: Endpoints for managing games in the Game Store API.
+  example: []
+  syntax:
+    content: public static class GamesEndpoints
+    content.vb: Public Module GamesEndpoints
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: GameStore.Api.Endpoints.GamesEndpoints.GetRoot
+  commentId: M:GameStore.Api.Endpoints.GamesEndpoints.GetRoot
+  id: GetRoot
+  parent: GameStore.Api.Endpoints.GamesEndpoints
+  langs:
+  - csharp
+  - vb
+  name: GetRoot()
+  nameWithType: GamesEndpoints.GetRoot()
+  fullName: GameStore.Api.Endpoints.GamesEndpoints.GetRoot()
+  type: Method
+  source:
+    remote:
+      path: GameStore.Api/Endpoints/GamesEndpoints.cs
+      branch: main
+      repo: https://github.com/jdelobel5987/GameStore.git
+    id: GetRoot
+    path: ../GameStore.Api/Endpoints/GamesEndpoints.cs
+    startLine: 28
+  assemblies:
+  - GameStore.Api
+  namespace: GameStore.Api.Endpoints
+  summary: Gets the root endpoint for the API.
+  example: []
+  syntax:
+    content: public static string GetRoot()
+    return:
+      type: System.String
+      description: A string containing the welcome message.
+    content.vb: Public Shared Function GetRoot() As String
+  overload: GameStore.Api.Endpoints.GamesEndpoints.GetRoot*
+- uid: GameStore.Api.Endpoints.GamesEndpoints.GetGames
+  commentId: M:GameStore.Api.Endpoints.GamesEndpoints.GetGames
+  id: GetGames
+  parent: GameStore.Api.Endpoints.GamesEndpoints
+  langs:
+  - csharp
+  - vb
+  name: GetGames()
+  nameWithType: GamesEndpoints.GetGames()
+  fullName: GameStore.Api.Endpoints.GamesEndpoints.GetGames()
+  type: Method
+  source:
+    remote:
+      path: GameStore.Api/Endpoints/GamesEndpoints.cs
+      branch: main
+      repo: https://github.com/jdelobel5987/GameStore.git
+    id: GetGames
+    path: ../GameStore.Api/Endpoints/GamesEndpoints.cs
+    startLine: 34
+  assemblies:
+  - GameStore.Api
+  namespace: GameStore.Api.Endpoints
+  summary: Retrieves the list of all games in the store.
+  example: []
+  syntax:
+    content: public static IResult GetGames()
+    return:
+      type: Microsoft.AspNetCore.Http.IResult
+      description: A list of all available games.
+    content.vb: Public Shared Function GetGames() As IResult
+  overload: GameStore.Api.Endpoints.GamesEndpoints.GetGames*
+- uid: GameStore.Api.Endpoints.GamesEndpoints.GetGameById(System.Int32)
+  commentId: M:GameStore.Api.Endpoints.GamesEndpoints.GetGameById(System.Int32)
+  id: GetGameById(System.Int32)
+  parent: GameStore.Api.Endpoints.GamesEndpoints
+  langs:
+  - csharp
+  - vb
+  name: GetGameById(int)
+  nameWithType: GamesEndpoints.GetGameById(int)
+  fullName: GameStore.Api.Endpoints.GamesEndpoints.GetGameById(int)
+  type: Method
+  source:
+    remote:
+      path: GameStore.Api/Endpoints/GamesEndpoints.cs
+      branch: main
+      repo: https://github.com/jdelobel5987/GameStore.git
+    id: GetGameById
+    path: ../GameStore.Api/Endpoints/GamesEndpoints.cs
+    startLine: 41
+  assemblies:
+  - GameStore.Api
+  namespace: GameStore.Api.Endpoints
+  summary: Retrieves a specific game by its ID.
+  example: []
+  syntax:
+    content: public static IResult GetGameById(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: The unique identifier of the game to retrieve.
+    return:
+      type: Microsoft.AspNetCore.Http.IResult
+      description: The game if found, a not found result otherwise.
+    content.vb: Public Shared Function GetGameById(id As Integer) As IResult
+  overload: GameStore.Api.Endpoints.GamesEndpoints.GetGameById*
+  nameWithType.vb: GamesEndpoints.GetGameById(Integer)
+  fullName.vb: GameStore.Api.Endpoints.GamesEndpoints.GetGameById(Integer)
+  name.vb: GetGameById(Integer)
+- uid: GameStore.Api.Endpoints.GamesEndpoints.CreateGame(GameStore.Api.Dtos.CreateGameDto)
+  commentId: M:GameStore.Api.Endpoints.GamesEndpoints.CreateGame(GameStore.Api.Dtos.CreateGameDto)
+  id: CreateGame(GameStore.Api.Dtos.CreateGameDto)
+  parent: GameStore.Api.Endpoints.GamesEndpoints
+  langs:
+  - csharp
+  - vb
+  name: CreateGame(CreateGameDto)
+  nameWithType: GamesEndpoints.CreateGame(CreateGameDto)
+  fullName: GameStore.Api.Endpoints.GamesEndpoints.CreateGame(GameStore.Api.Dtos.CreateGameDto)
+  type: Method
+  source:
+    remote:
+      path: GameStore.Api/Endpoints/GamesEndpoints.cs
+      branch: main
+      repo: https://github.com/jdelobel5987/GameStore.git
+    id: CreateGame
+    path: ../GameStore.Api/Endpoints/GamesEndpoints.cs
+    startLine: 53
+  assemblies:
+  - GameStore.Api
+  namespace: GameStore.Api.Endpoints
+  summary: Creates a new game entry.
+  example: []
+  syntax:
+    content: public static IResult CreateGame(CreateGameDto newGame)
+    parameters:
+    - id: newGame
+      type: GameStore.Api.Dtos.CreateGameDto
+      description: The details of the new game to create.
+    return:
+      type: Microsoft.AspNetCore.Http.IResult
+      description: The created game.
+    content.vb: Public Shared Function CreateGame(newGame As CreateGameDto) As IResult
+  overload: GameStore.Api.Endpoints.GamesEndpoints.CreateGame*
+- uid: GameStore.Api.Endpoints.GamesEndpoints.UpdateGame(System.Int32,GameStore.Api.Dtos.UpdateGameDto)
+  commentId: M:GameStore.Api.Endpoints.GamesEndpoints.UpdateGame(System.Int32,GameStore.Api.Dtos.UpdateGameDto)
+  id: UpdateGame(System.Int32,GameStore.Api.Dtos.UpdateGameDto)
+  parent: GameStore.Api.Endpoints.GamesEndpoints
+  langs:
+  - csharp
+  - vb
+  name: UpdateGame(int, UpdateGameDto)
+  nameWithType: GamesEndpoints.UpdateGame(int, UpdateGameDto)
+  fullName: GameStore.Api.Endpoints.GamesEndpoints.UpdateGame(int, GameStore.Api.Dtos.UpdateGameDto)
+  type: Method
+  source:
+    remote:
+      path: GameStore.Api/Endpoints/GamesEndpoints.cs
+      branch: main
+      repo: https://github.com/jdelobel5987/GameStore.git
+    id: UpdateGame
+    path: ../GameStore.Api/Endpoints/GamesEndpoints.cs
+    startLine: 74
+  assemblies:
+  - GameStore.Api
+  namespace: GameStore.Api.Endpoints
+  summary: Updates an existing game entry.
+  example: []
+  syntax:
+    content: public static IResult UpdateGame(int id, UpdateGameDto updatedGame)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: The unique identifier of the game to update.
+    - id: updatedGame
+      type: GameStore.Api.Dtos.UpdateGameDto
+      description: The updated details of the game.
+    return:
+      type: Microsoft.AspNetCore.Http.IResult
+      description: A no content result if successful, or a not found result if the game is not found.
+    content.vb: Public Shared Function UpdateGame(id As Integer, updatedGame As UpdateGameDto) As IResult
+  overload: GameStore.Api.Endpoints.GamesEndpoints.UpdateGame*
+  nameWithType.vb: GamesEndpoints.UpdateGame(Integer, UpdateGameDto)
+  fullName.vb: GameStore.Api.Endpoints.GamesEndpoints.UpdateGame(Integer, GameStore.Api.Dtos.UpdateGameDto)
+  name.vb: UpdateGame(Integer, UpdateGameDto)
+- uid: GameStore.Api.Endpoints.GamesEndpoints.DeleteGame(System.Int32)
+  commentId: M:GameStore.Api.Endpoints.GamesEndpoints.DeleteGame(System.Int32)
+  id: DeleteGame(System.Int32)
+  parent: GameStore.Api.Endpoints.GamesEndpoints
+  langs:
+  - csharp
+  - vb
+  name: DeleteGame(int)
+  nameWithType: GamesEndpoints.DeleteGame(int)
+  fullName: GameStore.Api.Endpoints.GamesEndpoints.DeleteGame(int)
+  type: Method
+  source:
+    remote:
+      path: GameStore.Api/Endpoints/GamesEndpoints.cs
+      branch: main
+      repo: https://github.com/jdelobel5987/GameStore.git
+    id: DeleteGame
+    path: ../GameStore.Api/Endpoints/GamesEndpoints.cs
+    startLine: 99
+  assemblies:
+  - GameStore.Api
+  namespace: GameStore.Api.Endpoints
+  summary: Deletes a game entry by its ID.
+  example: []
+  syntax:
+    content: public static IResult DeleteGame(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: The unique identifier of the game to delete.
+    return:
+      type: Microsoft.AspNetCore.Http.IResult
+      description: A no content result if successful, or a not found result if the game is not found.
+    content.vb: Public Shared Function DeleteGame(id As Integer) As IResult
+  overload: GameStore.Api.Endpoints.GamesEndpoints.DeleteGame*
+  nameWithType.vb: GamesEndpoints.DeleteGame(Integer)
+  fullName.vb: GameStore.Api.Endpoints.GamesEndpoints.DeleteGame(Integer)
+  name.vb: DeleteGame(Integer)
+- uid: GameStore.Api.Endpoints.GamesEndpoints.MapGamesEndpoints(Microsoft.AspNetCore.Builder.WebApplication)
+  commentId: M:GameStore.Api.Endpoints.GamesEndpoints.MapGamesEndpoints(Microsoft.AspNetCore.Builder.WebApplication)
+  id: MapGamesEndpoints(Microsoft.AspNetCore.Builder.WebApplication)
+  isExtensionMethod: true
+  parent: GameStore.Api.Endpoints.GamesEndpoints
+  langs:
+  - csharp
+  - vb
+  name: MapGamesEndpoints(WebApplication)
+  nameWithType: GamesEndpoints.MapGamesEndpoints(WebApplication)
+  fullName: GameStore.Api.Endpoints.GamesEndpoints.MapGamesEndpoints(Microsoft.AspNetCore.Builder.WebApplication)
+  type: Method
+  source:
+    remote:
+      path: GameStore.Api/Endpoints/GamesEndpoints.cs
+      branch: main
+      repo: https://github.com/jdelobel5987/GameStore.git
+    id: MapGamesEndpoints
+    path: ../GameStore.Api/Endpoints/GamesEndpoints.cs
+    startLine: 110
+  assemblies:
+  - GameStore.Api
+  namespace: GameStore.Api.Endpoints
+  summary: Maps the game-related endpoints to the provided WebApplication instance.
+  example: []
+  syntax:
+    content: public static void MapGamesEndpoints(this WebApplication app)
+    parameters:
+    - id: app
+      type: Microsoft.AspNetCore.Builder.WebApplication
+      description: The WebApplication instance to which the endpoints will be mapped.
+    content.vb: Public Shared Sub MapGamesEndpoints(app As WebApplication)
+  overload: GameStore.Api.Endpoints.GamesEndpoints.MapGamesEndpoints*
+references:
+- uid: GameStore.Api.Endpoints
+  commentId: N:GameStore.Api.Endpoints
+  href: GameStore.html
+  name: GameStore.Api.Endpoints
+  nameWithType: GameStore.Api.Endpoints
+  fullName: GameStore.Api.Endpoints
+  spec.csharp:
+  - uid: GameStore
+    name: GameStore
+    href: GameStore.html
+  - name: .
+  - uid: GameStore.Api
+    name: Api
+    href: GameStore.Api.html
+  - name: .
+  - uid: GameStore.Api.Endpoints
+    name: Endpoints
+    href: GameStore.Api.Endpoints.html
+  spec.vb:
+  - uid: GameStore
+    name: GameStore
+    href: GameStore.html
+  - name: .
+  - uid: GameStore.Api
+    name: Api
+    href: GameStore.Api.html
+  - name: .
+  - uid: GameStore.Api.Endpoints
+    name: Endpoints
+    href: GameStore.Api.Endpoints.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: GameStore.Api.Endpoints.GamesEndpoints.GetRoot*
+  commentId: Overload:GameStore.Api.Endpoints.GamesEndpoints.GetRoot
+  href: GameStore.Api.Endpoints.GamesEndpoints.html#GameStore_Api_Endpoints_GamesEndpoints_GetRoot
+  name: GetRoot
+  nameWithType: GamesEndpoints.GetRoot
+  fullName: GameStore.Api.Endpoints.GamesEndpoints.GetRoot
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: GameStore.Api.Endpoints.GamesEndpoints.GetGames*
+  commentId: Overload:GameStore.Api.Endpoints.GamesEndpoints.GetGames
+  href: GameStore.Api.Endpoints.GamesEndpoints.html#GameStore_Api_Endpoints_GamesEndpoints_GetGames
+  name: GetGames
+  nameWithType: GamesEndpoints.GetGames
+  fullName: GameStore.Api.Endpoints.GamesEndpoints.GetGames
+- uid: Microsoft.AspNetCore.Http.IResult
+  commentId: T:Microsoft.AspNetCore.Http.IResult
+  parent: Microsoft.AspNetCore.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.iresult
+  name: IResult
+  nameWithType: IResult
+  fullName: Microsoft.AspNetCore.Http.IResult
+- uid: Microsoft.AspNetCore.Http
+  commentId: N:Microsoft.AspNetCore.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Http
+  nameWithType: Microsoft.AspNetCore.Http
+  fullName: Microsoft.AspNetCore.Http
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http
+- uid: GameStore.Api.Endpoints.GamesEndpoints.GetGameById*
+  commentId: Overload:GameStore.Api.Endpoints.GamesEndpoints.GetGameById
+  href: GameStore.Api.Endpoints.GamesEndpoints.html#GameStore_Api_Endpoints_GamesEndpoints_GetGameById_System_Int32_
+  name: GetGameById
+  nameWithType: GamesEndpoints.GetGameById
+  fullName: GameStore.Api.Endpoints.GamesEndpoints.GetGameById
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: GameStore.Api.Endpoints.GamesEndpoints.CreateGame*
+  commentId: Overload:GameStore.Api.Endpoints.GamesEndpoints.CreateGame
+  href: GameStore.Api.Endpoints.GamesEndpoints.html#GameStore_Api_Endpoints_GamesEndpoints_CreateGame_GameStore_Api_Dtos_CreateGameDto_
+  name: CreateGame
+  nameWithType: GamesEndpoints.CreateGame
+  fullName: GameStore.Api.Endpoints.GamesEndpoints.CreateGame
+- uid: GameStore.Api.Dtos.CreateGameDto
+  commentId: T:GameStore.Api.Dtos.CreateGameDto
+  parent: GameStore.Api.Dtos
+  href: GameStore.Api.Dtos.CreateGameDto.html
+  name: CreateGameDto
+  nameWithType: CreateGameDto
+  fullName: GameStore.Api.Dtos.CreateGameDto
+- uid: GameStore.Api.Dtos
+  commentId: N:GameStore.Api.Dtos
+  href: GameStore.html
+  name: GameStore.Api.Dtos
+  nameWithType: GameStore.Api.Dtos
+  fullName: GameStore.Api.Dtos
+  spec.csharp:
+  - uid: GameStore
+    name: GameStore
+    href: GameStore.html
+  - name: .
+  - uid: GameStore.Api
+    name: Api
+    href: GameStore.Api.html
+  - name: .
+  - uid: GameStore.Api.Dtos
+    name: Dtos
+    href: GameStore.Api.Dtos.html
+  spec.vb:
+  - uid: GameStore
+    name: GameStore
+    href: GameStore.html
+  - name: .
+  - uid: GameStore.Api
+    name: Api
+    href: GameStore.Api.html
+  - name: .
+  - uid: GameStore.Api.Dtos
+    name: Dtos
+    href: GameStore.Api.Dtos.html
+- uid: GameStore.Api.Endpoints.GamesEndpoints.UpdateGame*
+  commentId: Overload:GameStore.Api.Endpoints.GamesEndpoints.UpdateGame
+  href: GameStore.Api.Endpoints.GamesEndpoints.html#GameStore_Api_Endpoints_GamesEndpoints_UpdateGame_System_Int32_GameStore_Api_Dtos_UpdateGameDto_
+  name: UpdateGame
+  nameWithType: GamesEndpoints.UpdateGame
+  fullName: GameStore.Api.Endpoints.GamesEndpoints.UpdateGame
+- uid: GameStore.Api.Dtos.UpdateGameDto
+  commentId: T:GameStore.Api.Dtos.UpdateGameDto
+  parent: GameStore.Api.Dtos
+  href: GameStore.Api.Dtos.UpdateGameDto.html
+  name: UpdateGameDto
+  nameWithType: UpdateGameDto
+  fullName: GameStore.Api.Dtos.UpdateGameDto
+- uid: GameStore.Api.Endpoints.GamesEndpoints.DeleteGame*
+  commentId: Overload:GameStore.Api.Endpoints.GamesEndpoints.DeleteGame
+  href: GameStore.Api.Endpoints.GamesEndpoints.html#GameStore_Api_Endpoints_GamesEndpoints_DeleteGame_System_Int32_
+  name: DeleteGame
+  nameWithType: GamesEndpoints.DeleteGame
+  fullName: GameStore.Api.Endpoints.GamesEndpoints.DeleteGame
+- uid: GameStore.Api.Endpoints.GamesEndpoints.MapGamesEndpoints*
+  commentId: Overload:GameStore.Api.Endpoints.GamesEndpoints.MapGamesEndpoints
+  href: GameStore.Api.Endpoints.GamesEndpoints.html#GameStore_Api_Endpoints_GamesEndpoints_MapGamesEndpoints_Microsoft_AspNetCore_Builder_WebApplication_
+  name: MapGamesEndpoints
+  nameWithType: GamesEndpoints.MapGamesEndpoints
+  fullName: GameStore.Api.Endpoints.GamesEndpoints.MapGamesEndpoints
+- uid: Microsoft.AspNetCore.Builder.WebApplication
+  commentId: T:Microsoft.AspNetCore.Builder.WebApplication
+  parent: Microsoft.AspNetCore.Builder
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.webapplication
+  name: WebApplication
+  nameWithType: WebApplication
+  fullName: Microsoft.AspNetCore.Builder.WebApplication
+- uid: Microsoft.AspNetCore.Builder
+  commentId: N:Microsoft.AspNetCore.Builder
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Builder
+  nameWithType: Microsoft.AspNetCore.Builder
+  fullName: Microsoft.AspNetCore.Builder
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Builder
+    name: Builder
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Builder
+    name: Builder
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder
