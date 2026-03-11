@@ -17,6 +17,9 @@ builder.Services.AddSwaggerGen(options =>   // ok sans options; ces options perm
 }
 );
 
+// utiliser les annotations de validation des DTOs
+builder.Services.AddValidation();
+
 var app = builder.Build();
 
 // Activer Swagger
