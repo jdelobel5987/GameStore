@@ -40,4 +40,6 @@ if (app.Environment.IsDevelopment())
 
 app.MapGamesEndpoints(); // map les endpoints de jeux depuis la classe GamesEndpoints
 
+app.MigrateDb(); // applies any pending migrations to the DB (from Data\DataExtensions.cs)
+
 app.Run(); 
