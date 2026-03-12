@@ -122,7 +122,7 @@ public static class GamesEndpoints
         app.MapGet("/", GetRoot)
            .WithSummary("Root endpoint")
            .WithDescription("This endpoint returns a simple greeting message to confirm that the API is up and running.")
-        //    .WithTags("Root")
+           .WithTags("Root")
         ;
 
         // GET /games
