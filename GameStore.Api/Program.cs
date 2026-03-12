@@ -1,3 +1,4 @@
+using GameStore.Api.Data;
 using GameStore.Api.Endpoints;
 using System.Reflection; // pour inclure les commentaires XML dans Swagger
 
@@ -19,6 +20,12 @@ builder.Services.AddSwaggerGen(options =>   // ok sans options; ces options perm
 
 // utiliser les annotations de validation des DTOs
 builder.Services.AddValidation();
+
+// Define connection string for SQLite database
+var connString = "Data Source=GameStore.db"; // Beware: the string syntax depends on the DB provider (here SQLite)
+
+// Register GameStoreContext with the connection string
+builder.Services.AddSqlite<GameStoreContext>(connString);
 
 var app = builder.Build();
 
