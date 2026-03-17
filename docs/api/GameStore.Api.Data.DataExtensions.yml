@@ -1,34 +1,35 @@
 ### YamlMime:ManagedReference
 items:
-- uid: GameStore.Api.Services.GameService
-  commentId: T:GameStore.Api.Services.GameService
-  id: GameService
-  parent: GameStore.Api.Services
+- uid: GameStore.Api.Data.DataExtensions
+  commentId: T:GameStore.Api.Data.DataExtensions
+  id: DataExtensions
+  parent: GameStore.Api.Data
   children:
-  - GameStore.Api.Services.GameService.NextId(System.Collections.Generic.List{GameStore.Api.Dtos.GameDto})
+  - GameStore.Api.Data.DataExtensions.AddGameStoreDb(Microsoft.AspNetCore.Builder.WebApplicationBuilder)
+  - GameStore.Api.Data.DataExtensions.MigrateDb(Microsoft.AspNetCore.Builder.WebApplication)
   langs:
   - csharp
   - vb
-  name: GameService
-  nameWithType: GameService
-  fullName: GameStore.Api.Services.GameService
+  name: DataExtensions
+  nameWithType: DataExtensions
+  fullName: GameStore.Api.Data.DataExtensions
   type: Class
   source:
     remote:
-      path: GameStore.Api/Services/GameService.cs
+      path: GameStore.Api/Data/DataExtensions.cs
       branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
-    id: GameService
-    path: ../GameStore.Api/Services/GameService.cs
+    id: DataExtensions
+    path: ../GameStore.Api/Data/DataExtensions.cs
     startLine: 8
   assemblies:
   - GameStore.Api
-  namespace: GameStore.Api.Services
-  summary: Service for managing game-related operations.
+  namespace: GameStore.Api.Data
+  summary: Extension methods for database operations.
   example: []
   syntax:
-    content: public class GameService
-    content.vb: Public Class GameService
+    content: public static class DataExtensions
+    content.vb: Public Module DataExtensions
   inheritance:
   - System.Object
   inheritedMembers:
@@ -39,51 +40,79 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: GameStore.Api.Services.GameService.NextId(System.Collections.Generic.List{GameStore.Api.Dtos.GameDto})
-  commentId: M:GameStore.Api.Services.GameService.NextId(System.Collections.Generic.List{GameStore.Api.Dtos.GameDto})
-  id: NextId(System.Collections.Generic.List{GameStore.Api.Dtos.GameDto})
-  parent: GameStore.Api.Services.GameService
+- uid: GameStore.Api.Data.DataExtensions.MigrateDb(Microsoft.AspNetCore.Builder.WebApplication)
+  commentId: M:GameStore.Api.Data.DataExtensions.MigrateDb(Microsoft.AspNetCore.Builder.WebApplication)
+  id: MigrateDb(Microsoft.AspNetCore.Builder.WebApplication)
+  isExtensionMethod: true
+  parent: GameStore.Api.Data.DataExtensions
   langs:
   - csharp
   - vb
-  name: NextId(List<GameDto>)
-  nameWithType: GameService.NextId(List<GameDto>)
-  fullName: GameStore.Api.Services.GameService.NextId(System.Collections.Generic.List<GameStore.Api.Dtos.GameDto>)
+  name: MigrateDb(WebApplication)
+  nameWithType: DataExtensions.MigrateDb(WebApplication)
+  fullName: GameStore.Api.Data.DataExtensions.MigrateDb(Microsoft.AspNetCore.Builder.WebApplication)
   type: Method
   source:
     remote:
-      path: GameStore.Api/Services/GameService.cs
+      path: GameStore.Api/Data/DataExtensions.cs
       branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
-    id: NextId
-    path: ../GameStore.Api/Services/GameService.cs
-    startLine: 15
+    id: MigrateDb
+    path: ../GameStore.Api/Data/DataExtensions.cs
+    startLine: 16
   assemblies:
   - GameStore.Api
-  namespace: GameStore.Api.Services
-  summary: Generates the next available ID for a game in the list.
+  namespace: GameStore.Api.Data
+  summary: Applies any pending migrations to the database. This method is typically called during application startup to ensure that the database schema is up to date with the application's data model. It creates a scope to retrieve an instance of GameStoreContext and calls the Migrate method on the database, which applies any pending migrations. If the database does not exist, it will be created automatically. If there are no pending migrations, this method will do nothing. This is a crucial step in ensuring that the application can interact with the database correctly, especially after changes to the data model that require schema updates.
   example: []
   syntax:
-    content: public static int NextId(List<GameDto> games)
+    content: public static void MigrateDb(this WebApplication app)
     parameters:
-    - id: games
-      type: System.Collections.Generic.List{GameStore.Api.Dtos.GameDto}
-      description: The list of existing games.
-    return:
-      type: System.Int32
-      description: The next available ID, or 1 if the list is empty.
-    content.vb: Public Shared Function NextId(games As List(Of GameDto)) As Integer
-  overload: GameStore.Api.Services.GameService.NextId*
-  nameWithType.vb: GameService.NextId(List(Of GameDto))
-  fullName.vb: GameStore.Api.Services.GameService.NextId(System.Collections.Generic.List(Of GameStore.Api.Dtos.GameDto))
-  name.vb: NextId(List(Of GameDto))
+    - id: app
+      type: Microsoft.AspNetCore.Builder.WebApplication
+      description: The WebApplication instance for which to apply migrations.
+    content.vb: Public Shared Sub MigrateDb(app As WebApplication)
+  overload: GameStore.Api.Data.DataExtensions.MigrateDb*
+- uid: GameStore.Api.Data.DataExtensions.AddGameStoreDb(Microsoft.AspNetCore.Builder.WebApplicationBuilder)
+  commentId: M:GameStore.Api.Data.DataExtensions.AddGameStoreDb(Microsoft.AspNetCore.Builder.WebApplicationBuilder)
+  id: AddGameStoreDb(Microsoft.AspNetCore.Builder.WebApplicationBuilder)
+  isExtensionMethod: true
+  parent: GameStore.Api.Data.DataExtensions
+  langs:
+  - csharp
+  - vb
+  name: AddGameStoreDb(WebApplicationBuilder)
+  nameWithType: DataExtensions.AddGameStoreDb(WebApplicationBuilder)
+  fullName: GameStore.Api.Data.DataExtensions.AddGameStoreDb(Microsoft.AspNetCore.Builder.WebApplicationBuilder)
+  type: Method
+  source:
+    remote:
+      path: GameStore.Api/Data/DataExtensions.cs
+      branch: feat/efcore-sqlite
+      repo: https://github.com/jdelobel5987/GameStore.git
+    id: AddGameStoreDb
+    path: ../GameStore.Api/Data/DataExtensions.cs
+    startLine: 29
+  assemblies:
+  - GameStore.Api
+  namespace: GameStore.Api.Data
+  summary: Registers the GameStoreContext with the dependency injection container using a connection string for a SQLite database. This method defines the connection string for the SQLite database and then registers the GameStoreContext with the specified connection string. Additionally, it includes a seeding mechanism that checks if there are any existing genres in the database, and if not, it adds a predefined list of genres (Fighting, RPG, Platformer, Racing, Sports) to the database. This ensures that when the application is first run, it has some initial data to work with. The method is designed to be called during application startup to set up the database context for the application.
+  example: []
+  syntax:
+    content: public static void AddGameStoreDb(this WebApplicationBuilder builder)
+    parameters:
+    - id: builder
+      type: Microsoft.AspNetCore.Builder.WebApplicationBuilder
+      description: The WebApplicationBuilder instance for which to add the database context.
+    content.vb: Public Shared Sub AddGameStoreDb(builder As WebApplicationBuilder)
+  overload: GameStore.Api.Data.DataExtensions.AddGameStoreDb*
 references:
-- uid: GameStore.Api.Services
-  commentId: N:GameStore.Api.Services
+- uid: GameStore.Api.Data
+  commentId: N:GameStore.Api.Data
   href: GameStore.html
-  name: GameStore.Api.Services
-  nameWithType: GameStore.Api.Services
-  fullName: GameStore.Api.Services
+  name: GameStore.Api.Data
+  nameWithType: GameStore.Api.Data
+  fullName: GameStore.Api.Data
   spec.csharp:
   - uid: GameStore
     name: GameStore
@@ -93,9 +122,9 @@ references:
     name: Api
     href: GameStore.Api.html
   - name: .
-  - uid: GameStore.Api.Services
-    name: Services
-    href: GameStore.Api.Services.html
+  - uid: GameStore.Api.Data
+    name: Data
+    href: GameStore.Api.Data.html
   spec.vb:
   - uid: GameStore
     name: GameStore
@@ -105,9 +134,9 @@ references:
     name: Api
     href: GameStore.Api.html
   - name: .
-  - uid: GameStore.Api.Services
-    name: Services
-    href: GameStore.Api.Services.html
+  - uid: GameStore.Api.Data
+    name: Data
+    href: GameStore.Api.Data.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -345,118 +374,68 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: GameStore.Api.Services.GameService.NextId*
-  commentId: Overload:GameStore.Api.Services.GameService.NextId
-  href: GameStore.Api.Services.GameService.html#GameStore_Api_Services_GameService_NextId_System_Collections_Generic_List_GameStore_Api_Dtos_GameDto__
-  name: NextId
-  nameWithType: GameService.NextId
-  fullName: GameStore.Api.Services.GameService.NextId
-- uid: System.Collections.Generic.List{GameStore.Api.Dtos.GameDto}
-  commentId: T:System.Collections.Generic.List{GameStore.Api.Dtos.GameDto}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<GameDto>
-  nameWithType: List<GameDto>
-  fullName: System.Collections.Generic.List<GameStore.Api.Dtos.GameDto>
-  nameWithType.vb: List(Of GameDto)
-  fullName.vb: System.Collections.Generic.List(Of GameStore.Api.Dtos.GameDto)
-  name.vb: List(Of GameDto)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - uid: GameStore.Api.Dtos.GameDto
-    name: GameDto
-    href: GameStore.Api.Dtos.GameDto.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: GameStore.Api.Dtos.GameDto
-    name: GameDto
-    href: GameStore.Api.Dtos.GameDto.html
-  - name: )
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
+- uid: GameStore.Api.Data.DataExtensions.MigrateDb*
+  commentId: Overload:GameStore.Api.Data.DataExtensions.MigrateDb
+  href: GameStore.Api.Data.DataExtensions.html#GameStore_Api_Data_DataExtensions_MigrateDb_Microsoft_AspNetCore_Builder_WebApplication_
+  name: MigrateDb
+  nameWithType: DataExtensions.MigrateDb
+  fullName: GameStore.Api.Data.DataExtensions.MigrateDb
+- uid: Microsoft.AspNetCore.Builder.WebApplication
+  commentId: T:Microsoft.AspNetCore.Builder.WebApplication
+  parent: Microsoft.AspNetCore.Builder
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: System.Collections.Generic.List`1
-  commentId: T:System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.webapplication
+  name: WebApplication
+  nameWithType: WebApplication
+  fullName: Microsoft.AspNetCore.Builder.WebApplication
+- uid: Microsoft.AspNetCore.Builder
+  commentId: N:Microsoft.AspNetCore.Builder
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Builder
+  nameWithType: Microsoft.AspNetCore.Builder
+  fullName: Microsoft.AspNetCore.Builder
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
+  - uid: Microsoft
+    name: Microsoft
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - name: T
-  - name: '>'
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Builder
+    name: Builder
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
+  - uid: Microsoft
+    name: Microsoft
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Builder
+    name: Builder
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder
+- uid: GameStore.Api.Data.DataExtensions.AddGameStoreDb*
+  commentId: Overload:GameStore.Api.Data.DataExtensions.AddGameStoreDb
+  href: GameStore.Api.Data.DataExtensions.html#GameStore_Api_Data_DataExtensions_AddGameStoreDb_Microsoft_AspNetCore_Builder_WebApplicationBuilder_
+  name: AddGameStoreDb
+  nameWithType: DataExtensions.AddGameStoreDb
+  fullName: GameStore.Api.Data.DataExtensions.AddGameStoreDb
+- uid: Microsoft.AspNetCore.Builder.WebApplicationBuilder
+  commentId: T:Microsoft.AspNetCore.Builder.WebApplicationBuilder
+  parent: Microsoft.AspNetCore.Builder
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.webapplicationbuilder
+  name: WebApplicationBuilder
+  nameWithType: WebApplicationBuilder
+  fullName: Microsoft.AspNetCore.Builder.WebApplicationBuilder

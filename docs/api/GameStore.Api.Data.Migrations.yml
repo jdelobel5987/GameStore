@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: GameStore.Api.Data.Migrations
+  commentId: N:GameStore.Api.Data.Migrations
+  id: GameStore.Api.Data.Migrations
+  children:
+  - GameStore.Api.Data.Migrations.InitialCreate
+  langs:
+  - csharp
+  - vb
+  name: GameStore.Api.Data.Migrations
+  nameWithType: GameStore.Api.Data.Migrations
+  fullName: GameStore.Api.Data.Migrations
+  type: Namespace
+  assemblies:
+  - GameStore.Api
+references:
+- uid: GameStore.Api.Data.Migrations.InitialCreate
+  commentId: T:GameStore.Api.Data.Migrations.InitialCreate
+  href: GameStore.Api.Data.Migrations.InitialCreate.html
+  name: InitialCreate
+  nameWithType: InitialCreate
+  fullName: GameStore.Api.Data.Migrations.InitialCreate

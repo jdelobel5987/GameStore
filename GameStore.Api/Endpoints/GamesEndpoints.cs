@@ -1,5 +1,8 @@
+using GameStore.Api.Data;
 using GameStore.Api.Dtos; // les DTOs
-using GameStore.Api.Services; // service pour la logique métier
+using GameStore.Api.Models;
+using GameStore.Api.Services;
+using Microsoft.EntityFrameworkCore; // service pour la logique métier
 
 namespace GameStore.Api.Endpoints;
 
@@ -12,84 +15,102 @@ public static class GamesEndpoints
     const string GetGameEndpointName = "GetGameById";
 
     /// <summary>
-    /// In-memory list of games to simulate a database.
-    /// </summary>
-    private static readonly List<GameDto> games = [
-        new GameDto (1 , "game 1", "fighting", 19.99M, new DateOnly(2024, 6, 1)),
-        new GameDto (2 , "game 2", "racing", 29.99M, new DateOnly(2020, 3, 25)),
-        new GameDto (3 , "game 3", "sport", 9.99M, new DateOnly(2019, 6, 12)),
-        new GameDto (4 , "game 4", "platformer", 39.99M, new DateOnly(2019, 7, 1)),
-        new GameDto (5 , "game 5", "rpg", 59.99M, new DateOnly(2023, 11, 8)),
-    ];
-
-    /// <summary>
     /// Gets the root endpoint for the API.
     /// </summary>
     /// <returns>A string containing the welcome message.</returns>
     public static string GetRoot() => "Welcome to the Game Store API!\nThis API allows you to manage a collection of video games, including creating, retrieving, updating, and deleting game entries.\nAccess the /swagger endpoint for interactive API documentation and testing.";
 
     /// <summary>
-    /// Retrieves the list of all games in the store.
+    /// Retrieves all games from the database and returns them as a list of GameSummaryDto objects.
     /// </summary>
+    /// <param name="dbContext">The database context for accessing the data store.</param>
     /// <returns>A list of all available games.</returns>
-    
-    // public static IResult GetGames() => Results.Ok(games); // I've changed this to return directly the list of games in order to let swagger detect the schema of GameDto
-    public static List<GameDto> GetGames() => games;
+    public static async Task<List<GameSummaryDto>> GetAllGames(GameStoreContext dbContext)
+    {
+        return await dbContext.Games
+            .Include(game => game.Genre)
+            .Select(game => new GameSummaryDto(
+                game.Id,
+                game.Name,
+                game.Genre!.Name,
+                game.Price,
+                game.ReleaseDate
+            ))
+            .AsNoTracking()     // to optimize read-only queries by disabling change tracking
+            .ToListAsync();
+    }
 
     /// <summary>
     /// Retrieves a specific game by its ID.
     /// </summary>
     /// <param name="id">The unique identifier of the game to retrieve.</param>
+    /// <param name="dbContext">The database context for accessing the data store.</param>
     /// <returns>The game if found, a not found result otherwise.</returns>
-    public static IResult GetGameById(int id)
+    public static async Task<IResult> GetGameById(int id, GameStoreContext dbContext)
         {
-            var game = games.Find(game => game.Id == id);
+            var game = await dbContext.Games.FindAsync(id);
 
-            return game is null ? Results.NotFound() : Results.Ok(game);
+            return game is null ? Results.NotFound() : Results.Ok(new GameDetailsDto(
+                game.Id,
+                game.Name,
+                game.GenreID,
+                game.Price,
+                game.ReleaseDate
+            ));
         }
 
     /// <summary>
     /// Creates a new game entry.
     /// </summary>
     /// <param name="newGame">The details of the new game to create.</param>
+    /// <param name="dbContext">The database context for accessing the data store.</param>
     /// <returns>The created game.</returns>
-    public static IResult CreateGame(CreateGameDto newGame)
+    public static async Task<IResult> CreateGame(CreateGameDto newGame, GameStoreContext dbContext)
         {
-            GameDto game = new GameDto(
-                GameService.NextId(games),
-                newGame.Name,
-                newGame.Genre,
-                newGame.Price,
-                newGame.ReleaseDate
+            Game game = new Game()
+            {
+                Name = newGame.Name,
+                GenreID = newGame.GenreId,
+                Price = newGame.Price,
+                ReleaseDate = newGame.ReleaseDate
+            };
+
+            dbContext.Games.Add(game);
+            await dbContext.SaveChangesAsync();
+
+            GameDetailsDto gameDto = new GameDetailsDto(
+                game.Id,
+                game.Name,
+                game.GenreID,
+                game.Price,
+                game.ReleaseDate
             );
 
-            games.Add(game);
-
-            return Results.CreatedAtRoute(GetGameEndpointName, new { id = game.Id }, game);
-        }    
+            return Results.CreatedAtRoute(GetGameEndpointName, new { id = gameDto.Id }, gameDto);
+        }
 
     /// <summary>
     /// Updates an existing game entry.
     /// </summary>
     /// <param name="id">The unique identifier of the game to update.</param>
     /// <param name="updatedGame">The updated details of the game.</param>
+    /// <param name="dbContext">The database context for accessing the data store.</param>
     /// <returns>A no content result if successful, or a not found result if the game is not found.</returns>
-    public static IResult UpdateGame(int id, UpdateGameDto updatedGame)
+    public static async Task<IResult> UpdateGame(int id, UpdateGameDto updatedGame, GameStoreContext dbContext)
         {
-            var index = games.FindIndex(game => game.Id == id);
+            var existingGame = await dbContext.Games.FindAsync(id);
 
-            if (index == -1)
+            if (existingGame is null)
             {
                 return Results.NotFound(); // or choose to create instead of update if not exists
             }
 
-            games[index] = new GameDto(
-                id,
-                updatedGame.Name,
-                updatedGame.Genre,
-                updatedGame.Price,
-                updatedGame.ReleaseDate
-            );
+            existingGame.Name = updatedGame.Name;
+            existingGame.GenreID = updatedGame.GenreId;
+            existingGame.Price = updatedGame.Price;
+            existingGame.ReleaseDate = updatedGame.ReleaseDate;
+
+            await dbContext.SaveChangesAsync();
 
             return Results.NoContent();
         }
@@ -98,12 +119,29 @@ public static class GamesEndpoints
     /// Deletes a game entry by its ID.
     /// </summary>
     /// <param name="id">The unique identifier of the game to delete.</param>
+    /// <param name="dbContext">The database context for accessing the data store.</param>
     /// <returns>A no content result if successful, or a not found result if the game is not found.</returns>
-    public static IResult DeleteGame(int id)
+    public static async Task<IResult> DeleteGame(int id, GameStoreContext dbContext)
         {
-            games.RemoveAll(game => game.Id == id);
+            // 3 steps deletion: find, remove, save changes
+            var game = await dbContext.Games.FindAsync(id);
+            if (game is null)
+            {
+                return Results.NotFound();
+            }
+
+            dbContext.Games.Remove(game);
+            await dbContext.SaveChangesAsync();
 
             return Results.NoContent();
+
+            // 1 step alternative: directly execute a DELETE statement in the DB without loading the entity into memory
+            // var deleted = await dbContext.Games
+            //     .Where(game => game.Id == id)
+            //     .ExecuteDeleteAsync();
+            // 
+            // return deleted == 0 ? Results.NotFound() : Results.NoContent();
+
         }
 
     /// <summary>
@@ -126,7 +164,7 @@ public static class GamesEndpoints
         ;
 
         // GET /games
-        group.MapGet("/", GetGames)
+        group.MapGet("/", GetAllGames)
            .WithSummary("Get all games")
            .WithDescription("This endpoint returns a list of all available games.")
         //    .WithTags("Games")

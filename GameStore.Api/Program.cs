@@ -1,4 +1,6 @@
+using GameStore.Api.Data;
 using GameStore.Api.Endpoints;
+using Microsoft.AspNetCore.Http.Connections;
 using System.Reflection; // pour inclure les commentaires XML dans Swagger
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +22,9 @@ builder.Services.AddSwaggerGen(options =>   // ok sans options; ces options perm
 // utiliser les annotations de validation des DTOs
 builder.Services.AddValidation();
 
+// Ajouter le contexte de données
+builder.AddGameStoreDb(); 
+
 var app = builder.Build();
 
 // Activer Swagger
@@ -32,5 +37,7 @@ if (app.Environment.IsDevelopment())
 // app.UseHttpsRedirection();
 
 app.MapGamesEndpoints(); // map les endpoints de jeux depuis la classe GamesEndpoints
+
+app.MigrateDb(); // applies any pending migrations to the DB (from Data\DataExtensions.cs)
 
 app.Run(); 

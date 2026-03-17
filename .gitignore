@@ -20,6 +20,11 @@ image/README/
 # docfx
 docs/_site/
 
+# Database files
+*.db
+*.db-shm
+*.db-wal
+
 ########################################################
 ### Auto generated ignores from dotnet new gitignore ###
 ########################################################
