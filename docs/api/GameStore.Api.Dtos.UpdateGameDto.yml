@@ -20,11 +20,11 @@ items:
   source:
     remote:
       path: GameStore.Api/Dtos/UpdateGameDto.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: UpdateGameDto
     path: ../GameStore.Api/Dtos/UpdateGameDto.cs
-    startLine: 10
+    startLine: 12
   assemblies:
   - GameStore.Api
   namespace: GameStore.Api.Dtos
@@ -59,11 +59,11 @@ items:
   source:
     remote:
       path: GameStore.Api/Dtos/UpdateGameDto.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: .ctor
     path: ../GameStore.Api/Dtos/UpdateGameDto.cs
-    startLine: 10
+    startLine: 12
   assemblies:
   - GameStore.Api
   namespace: GameStore.Api.Dtos
@@ -75,12 +75,38 @@ items:
     - id: Name
       type: System.String
       description: Nom du produit
+      attributes:
+      - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+        ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+        arguments: []
+      - type: System.ComponentModel.DataAnnotations.StringLengthAttribute
+        ctor: System.ComponentModel.DataAnnotations.StringLengthAttribute.#ctor(System.Int32)
+        arguments:
+        - type: System.Int32
+          value: 50
     - id: Genre
       type: System.String
       description: Genre du produit
+      attributes:
+      - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+        ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+        arguments: []
+      - type: System.ComponentModel.DataAnnotations.StringLengthAttribute
+        ctor: System.ComponentModel.DataAnnotations.StringLengthAttribute.#ctor(System.Int32)
+        arguments:
+        - type: System.Int32
+          value: 20
     - id: Price
       type: System.Decimal
       description: Prix du produit
+      attributes:
+      - type: System.ComponentModel.DataAnnotations.RangeAttribute
+        ctor: System.ComponentModel.DataAnnotations.RangeAttribute.#ctor(System.Int32,System.Int32)
+        arguments:
+        - type: System.Int32
+          value: 1
+        - type: System.Int32
+          value: 100
     - id: ReleaseDate
       type: System.DateOnly
       description: Date de sortie du produit
@@ -103,11 +129,11 @@ items:
   source:
     remote:
       path: GameStore.Api/Dtos/UpdateGameDto.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: Name
     path: ../GameStore.Api/Dtos/UpdateGameDto.cs
-    startLine: 11
+    startLine: 13
   assemblies:
   - GameStore.Api
   namespace: GameStore.Api.Dtos
@@ -134,11 +160,11 @@ items:
   source:
     remote:
       path: GameStore.Api/Dtos/UpdateGameDto.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: Genre
     path: ../GameStore.Api/Dtos/UpdateGameDto.cs
-    startLine: 12
+    startLine: 14
   assemblies:
   - GameStore.Api
   namespace: GameStore.Api.Dtos
@@ -165,11 +191,11 @@ items:
   source:
     remote:
       path: GameStore.Api/Dtos/UpdateGameDto.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: Price
     path: ../GameStore.Api/Dtos/UpdateGameDto.cs
-    startLine: 13
+    startLine: 15
   assemblies:
   - GameStore.Api
   namespace: GameStore.Api.Dtos
@@ -196,11 +222,11 @@ items:
   source:
     remote:
       path: GameStore.Api/Dtos/UpdateGameDto.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: ReleaseDate
     path: ../GameStore.Api/Dtos/UpdateGameDto.cs
-    startLine: 14
+    startLine: 16
   assemblies:
   - GameStore.Api
   namespace: GameStore.Api.Dtos

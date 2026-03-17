@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: GameStore.Api/Dtos/GameDto.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: GameDto
     path: ../GameStore.Api/Dtos/GameDto.cs
@@ -60,7 +60,7 @@ items:
   source:
     remote:
       path: GameStore.Api/Dtos/GameDto.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: .ctor
     path: ../GameStore.Api/Dtos/GameDto.cs
@@ -107,7 +107,7 @@ items:
   source:
     remote:
       path: GameStore.Api/Dtos/GameDto.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: Id
     path: ../GameStore.Api/Dtos/GameDto.cs
@@ -138,7 +138,7 @@ items:
   source:
     remote:
       path: GameStore.Api/Dtos/GameDto.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: Name
     path: ../GameStore.Api/Dtos/GameDto.cs
@@ -169,7 +169,7 @@ items:
   source:
     remote:
       path: GameStore.Api/Dtos/GameDto.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: Genre
     path: ../GameStore.Api/Dtos/GameDto.cs
@@ -200,7 +200,7 @@ items:
   source:
     remote:
       path: GameStore.Api/Dtos/GameDto.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: Price
     path: ../GameStore.Api/Dtos/GameDto.cs
@@ -231,7 +231,7 @@ items:
   source:
     remote:
       path: GameStore.Api/Dtos/GameDto.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: ReleaseDate
     path: ../GameStore.Api/Dtos/GameDto.cs

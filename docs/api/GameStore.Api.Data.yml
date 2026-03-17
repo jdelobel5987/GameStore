@@ -1,0 +1,61 @@
+### YamlMime:ManagedReference
+items:
+- uid: GameStore.Api.Data
+  commentId: N:GameStore.Api.Data
+  id: GameStore.Api.Data
+  children:
+  - GameStore.Api.Data.DataExtensions
+  - GameStore.Api.Data.GameStoreContext
+  langs:
+  - csharp
+  - vb
+  name: GameStore.Api.Data
+  nameWithType: GameStore.Api.Data
+  fullName: GameStore.Api.Data
+  type: Namespace
+  assemblies:
+  - GameStore.Api
+references:
+- uid: GameStore.Api.Data.DataExtensions
+  commentId: T:GameStore.Api.Data.DataExtensions
+  href: GameStore.Api.Data.DataExtensions.html
+  name: DataExtensions
+  nameWithType: DataExtensions
+  fullName: GameStore.Api.Data.DataExtensions
+- uid: GameStore.Api.Data.GameStoreContext
+  commentId: T:GameStore.Api.Data.GameStoreContext
+  parent: GameStore.Api.Data
+  href: GameStore.Api.Data.GameStoreContext.html
+  name: GameStoreContext
+  nameWithType: GameStoreContext
+  fullName: GameStore.Api.Data.GameStoreContext
+- uid: GameStore.Api.Data
+  commentId: N:GameStore.Api.Data
+  href: GameStore.html
+  name: GameStore.Api.Data
+  nameWithType: GameStore.Api.Data
+  fullName: GameStore.Api.Data
+  spec.csharp:
+  - uid: GameStore
+    name: GameStore
+    href: GameStore.html
+  - name: .
+  - uid: GameStore.Api
+    name: Api
+    href: GameStore.Api.html
+  - name: .
+  - uid: GameStore.Api.Data
+    name: Data
+    href: GameStore.Api.Data.html
+  spec.vb:
+  - uid: GameStore
+    name: GameStore
+    href: GameStore.html
+  - name: .
+  - uid: GameStore.Api
+    name: Api
+    href: GameStore.Api.html
+  - name: .
+  - uid: GameStore.Api.Data
+    name: Data
+    href: GameStore.Api.Data.html

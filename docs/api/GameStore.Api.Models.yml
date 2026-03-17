@@ -1,0 +1,61 @@
+### YamlMime:ManagedReference
+items:
+- uid: GameStore.Api.Models
+  commentId: N:GameStore.Api.Models
+  id: GameStore.Api.Models
+  children:
+  - GameStore.Api.Models.Game
+  - GameStore.Api.Models.Genre
+  langs:
+  - csharp
+  - vb
+  name: GameStore.Api.Models
+  nameWithType: GameStore.Api.Models
+  fullName: GameStore.Api.Models
+  type: Namespace
+  assemblies:
+  - GameStore.Api
+references:
+- uid: GameStore.Api.Models.Game
+  commentId: T:GameStore.Api.Models.Game
+  href: GameStore.Api.Models.Game.html
+  name: Game
+  nameWithType: Game
+  fullName: GameStore.Api.Models.Game
+- uid: GameStore.Api.Models.Genre
+  commentId: T:GameStore.Api.Models.Genre
+  parent: GameStore.Api.Models
+  href: GameStore.Api.Models.Genre.html
+  name: Genre
+  nameWithType: Genre
+  fullName: GameStore.Api.Models.Genre
+- uid: GameStore.Api.Models
+  commentId: N:GameStore.Api.Models
+  href: GameStore.html
+  name: GameStore.Api.Models
+  nameWithType: GameStore.Api.Models
+  fullName: GameStore.Api.Models
+  spec.csharp:
+  - uid: GameStore
+    name: GameStore
+    href: GameStore.html
+  - name: .
+  - uid: GameStore.Api
+    name: Api
+    href: GameStore.Api.html
+  - name: .
+  - uid: GameStore.Api.Models
+    name: Models
+    href: GameStore.Api.Models.html
+  spec.vb:
+  - uid: GameStore
+    name: GameStore
+    href: GameStore.html
+  - name: .
+  - uid: GameStore.Api
+    name: Api
+    href: GameStore.Api.html
+  - name: .
+  - uid: GameStore.Api.Models
+    name: Models
+    href: GameStore.Api.Models.html

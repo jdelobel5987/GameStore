@@ -5,7 +5,7 @@ items:
   id: GamesEndpoints
   parent: GameStore.Api.Endpoints
   children:
-  - GameStore.Api.Endpoints.GamesEndpoints.CreateGame(GameStore.Api.Dtos.CreateGameDto)
+  - GameStore.Api.Endpoints.GamesEndpoints.CreateGame(GameStore.Api.Dtos.CreateGameDto,GameStore.Api.Data.GameStoreContext)
   - GameStore.Api.Endpoints.GamesEndpoints.DeleteGame(System.Int32)
   - GameStore.Api.Endpoints.GamesEndpoints.GetGameById(System.Int32)
   - GameStore.Api.Endpoints.GamesEndpoints.GetGames
@@ -22,11 +22,11 @@ items:
   source:
     remote:
       path: GameStore.Api/Endpoints/GamesEndpoints.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: GamesEndpoints
     path: ../GameStore.Api/Endpoints/GamesEndpoints.cs
-    startLine: 8
+    startLine: 9
   assemblies:
   - GameStore.Api
   namespace: GameStore.Api.Endpoints
@@ -59,11 +59,11 @@ items:
   source:
     remote:
       path: GameStore.Api/Endpoints/GamesEndpoints.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: GetRoot
     path: ../GameStore.Api/Endpoints/GamesEndpoints.cs
-    startLine: 28
+    startLine: 29
   assemblies:
   - GameStore.Api
   namespace: GameStore.Api.Endpoints
@@ -90,22 +90,22 @@ items:
   source:
     remote:
       path: GameStore.Api/Endpoints/GamesEndpoints.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: GetGames
     path: ../GameStore.Api/Endpoints/GamesEndpoints.cs
-    startLine: 34
+    startLine: 37
   assemblies:
   - GameStore.Api
   namespace: GameStore.Api.Endpoints
   summary: Retrieves the list of all games in the store.
   example: []
   syntax:
-    content: public static IResult GetGames()
+    content: public static List<GameDto> GetGames()
     return:
-      type: Microsoft.AspNetCore.Http.IResult
+      type: System.Collections.Generic.List{GameStore.Api.Dtos.GameDto}
       description: A list of all available games.
-    content.vb: Public Shared Function GetGames() As IResult
+    content.vb: Public Shared Function GetGames() As List(Of GameDto)
   overload: GameStore.Api.Endpoints.GamesEndpoints.GetGames*
 - uid: GameStore.Api.Endpoints.GamesEndpoints.GetGameById(System.Int32)
   commentId: M:GameStore.Api.Endpoints.GamesEndpoints.GetGameById(System.Int32)
@@ -121,11 +121,11 @@ items:
   source:
     remote:
       path: GameStore.Api/Endpoints/GamesEndpoints.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: GetGameById
     path: ../GameStore.Api/Endpoints/GamesEndpoints.cs
-    startLine: 41
+    startLine: 44
   assemblies:
   - GameStore.Api
   namespace: GameStore.Api.Endpoints
@@ -145,40 +145,43 @@ items:
   nameWithType.vb: GamesEndpoints.GetGameById(Integer)
   fullName.vb: GameStore.Api.Endpoints.GamesEndpoints.GetGameById(Integer)
   name.vb: GetGameById(Integer)
-- uid: GameStore.Api.Endpoints.GamesEndpoints.CreateGame(GameStore.Api.Dtos.CreateGameDto)
-  commentId: M:GameStore.Api.Endpoints.GamesEndpoints.CreateGame(GameStore.Api.Dtos.CreateGameDto)
-  id: CreateGame(GameStore.Api.Dtos.CreateGameDto)
+- uid: GameStore.Api.Endpoints.GamesEndpoints.CreateGame(GameStore.Api.Dtos.CreateGameDto,GameStore.Api.Data.GameStoreContext)
+  commentId: M:GameStore.Api.Endpoints.GamesEndpoints.CreateGame(GameStore.Api.Dtos.CreateGameDto,GameStore.Api.Data.GameStoreContext)
+  id: CreateGame(GameStore.Api.Dtos.CreateGameDto,GameStore.Api.Data.GameStoreContext)
   parent: GameStore.Api.Endpoints.GamesEndpoints
   langs:
   - csharp
   - vb
-  name: CreateGame(CreateGameDto)
-  nameWithType: GamesEndpoints.CreateGame(CreateGameDto)
-  fullName: GameStore.Api.Endpoints.GamesEndpoints.CreateGame(GameStore.Api.Dtos.CreateGameDto)
+  name: CreateGame(CreateGameDto, GameStoreContext)
+  nameWithType: GamesEndpoints.CreateGame(CreateGameDto, GameStoreContext)
+  fullName: GameStore.Api.Endpoints.GamesEndpoints.CreateGame(GameStore.Api.Dtos.CreateGameDto, GameStore.Api.Data.GameStoreContext)
   type: Method
   source:
     remote:
       path: GameStore.Api/Endpoints/GamesEndpoints.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: CreateGame
     path: ../GameStore.Api/Endpoints/GamesEndpoints.cs
-    startLine: 53
+    startLine: 57
   assemblies:
   - GameStore.Api
   namespace: GameStore.Api.Endpoints
   summary: Creates a new game entry.
   example: []
   syntax:
-    content: public static IResult CreateGame(CreateGameDto newGame)
+    content: public static IResult CreateGame(CreateGameDto newGame, GameStoreContext dbContext)
     parameters:
     - id: newGame
       type: GameStore.Api.Dtos.CreateGameDto
       description: The details of the new game to create.
+    - id: dbContext
+      type: GameStore.Api.Data.GameStoreContext
+      description: The database context for accessing the data store.
     return:
       type: Microsoft.AspNetCore.Http.IResult
       description: The created game.
-    content.vb: Public Shared Function CreateGame(newGame As CreateGameDto) As IResult
+    content.vb: Public Shared Function CreateGame(newGame As CreateGameDto, dbContext As GameStoreContext) As IResult
   overload: GameStore.Api.Endpoints.GamesEndpoints.CreateGame*
 - uid: GameStore.Api.Endpoints.GamesEndpoints.UpdateGame(System.Int32,GameStore.Api.Dtos.UpdateGameDto)
   commentId: M:GameStore.Api.Endpoints.GamesEndpoints.UpdateGame(System.Int32,GameStore.Api.Dtos.UpdateGameDto)
@@ -194,11 +197,11 @@ items:
   source:
     remote:
       path: GameStore.Api/Endpoints/GamesEndpoints.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: UpdateGame
     path: ../GameStore.Api/Endpoints/GamesEndpoints.cs
-    startLine: 74
+    startLine: 78
   assemblies:
   - GameStore.Api
   namespace: GameStore.Api.Endpoints
@@ -235,11 +238,11 @@ items:
   source:
     remote:
       path: GameStore.Api/Endpoints/GamesEndpoints.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: DeleteGame
     path: ../GameStore.Api/Endpoints/GamesEndpoints.cs
-    startLine: 99
+    startLine: 103
   assemblies:
   - GameStore.Api
   namespace: GameStore.Api.Endpoints
@@ -274,11 +277,11 @@ items:
   source:
     remote:
       path: GameStore.Api/Endpoints/GamesEndpoints.cs
-      branch: main
+      branch: feat/efcore-sqlite
       repo: https://github.com/jdelobel5987/GameStore.git
     id: MapGamesEndpoints
     path: ../GameStore.Api/Endpoints/GamesEndpoints.cs
-    startLine: 110
+    startLine: 114
   assemblies:
   - GameStore.Api
   namespace: GameStore.Api.Endpoints
@@ -583,6 +586,121 @@ references:
   name: GetGames
   nameWithType: GamesEndpoints.GetGames
   fullName: GameStore.Api.Endpoints.GamesEndpoints.GetGames
+- uid: System.Collections.Generic.List{GameStore.Api.Dtos.GameDto}
+  commentId: T:System.Collections.Generic.List{GameStore.Api.Dtos.GameDto}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<GameDto>
+  nameWithType: List<GameDto>
+  fullName: System.Collections.Generic.List<GameStore.Api.Dtos.GameDto>
+  nameWithType.vb: List(Of GameDto)
+  fullName.vb: System.Collections.Generic.List(Of GameStore.Api.Dtos.GameDto)
+  name.vb: List(Of GameDto)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: GameStore.Api.Dtos.GameDto
+    name: GameDto
+    href: GameStore.Api.Dtos.GameDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: GameStore.Api.Dtos.GameDto
+    name: GameDto
+    href: GameStore.Api.Dtos.GameDto.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: GameStore.Api.Endpoints.GamesEndpoints.GetGameById*
+  commentId: Overload:GameStore.Api.Endpoints.GamesEndpoints.GetGameById
+  href: GameStore.Api.Endpoints.GamesEndpoints.html#GameStore_Api_Endpoints_GamesEndpoints_GetGameById_System_Int32_
+  name: GetGameById
+  nameWithType: GamesEndpoints.GetGameById
+  fullName: GameStore.Api.Endpoints.GamesEndpoints.GetGameById
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: Microsoft.AspNetCore.Http.IResult
   commentId: T:Microsoft.AspNetCore.Http.IResult
   parent: Microsoft.AspNetCore.Http
@@ -628,26 +746,9 @@ references:
     name: Http
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http
-- uid: GameStore.Api.Endpoints.GamesEndpoints.GetGameById*
-  commentId: Overload:GameStore.Api.Endpoints.GamesEndpoints.GetGameById
-  href: GameStore.Api.Endpoints.GamesEndpoints.html#GameStore_Api_Endpoints_GamesEndpoints_GetGameById_System_Int32_
-  name: GetGameById
-  nameWithType: GamesEndpoints.GetGameById
-  fullName: GameStore.Api.Endpoints.GamesEndpoints.GetGameById
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
 - uid: GameStore.Api.Endpoints.GamesEndpoints.CreateGame*
   commentId: Overload:GameStore.Api.Endpoints.GamesEndpoints.CreateGame
-  href: GameStore.Api.Endpoints.GamesEndpoints.html#GameStore_Api_Endpoints_GamesEndpoints_CreateGame_GameStore_Api_Dtos_CreateGameDto_
+  href: GameStore.Api.Endpoints.GamesEndpoints.html#GameStore_Api_Endpoints_GamesEndpoints_CreateGame_GameStore_Api_Dtos_CreateGameDto_GameStore_Api_Data_GameStoreContext_
   name: CreateGame
   nameWithType: GamesEndpoints.CreateGame
   fullName: GameStore.Api.Endpoints.GamesEndpoints.CreateGame
@@ -658,6 +759,13 @@ references:
   name: CreateGameDto
   nameWithType: CreateGameDto
   fullName: GameStore.Api.Dtos.CreateGameDto
+- uid: GameStore.Api.Data.GameStoreContext
+  commentId: T:GameStore.Api.Data.GameStoreContext
+  parent: GameStore.Api.Data
+  href: GameStore.Api.Data.GameStoreContext.html
+  name: GameStoreContext
+  nameWithType: GameStoreContext
+  fullName: GameStore.Api.Data.GameStoreContext
 - uid: GameStore.Api.Dtos
   commentId: N:GameStore.Api.Dtos
   href: GameStore.html
@@ -688,6 +796,36 @@ references:
   - uid: GameStore.Api.Dtos
     name: Dtos
     href: GameStore.Api.Dtos.html
+- uid: GameStore.Api.Data
+  commentId: N:GameStore.Api.Data
+  href: GameStore.html
+  name: GameStore.Api.Data
+  nameWithType: GameStore.Api.Data
+  fullName: GameStore.Api.Data
+  spec.csharp:
+  - uid: GameStore
+    name: GameStore
+    href: GameStore.html
+  - name: .
+  - uid: GameStore.Api
+    name: Api
+    href: GameStore.Api.html
+  - name: .
+  - uid: GameStore.Api.Data
+    name: Data
+    href: GameStore.Api.Data.html
+  spec.vb:
+  - uid: GameStore
+    name: GameStore
+    href: GameStore.html
+  - name: .
+  - uid: GameStore.Api
+    name: Api
+    href: GameStore.Api.html
+  - name: .
+  - uid: GameStore.Api.Data
+    name: Data
+    href: GameStore.Api.Data.html
 - uid: GameStore.Api.Endpoints.GamesEndpoints.UpdateGame*
   commentId: Overload:GameStore.Api.Endpoints.GamesEndpoints.UpdateGame
   href: GameStore.Api.Endpoints.GamesEndpoints.html#GameStore_Api_Endpoints_GamesEndpoints_UpdateGame_System_Int32_GameStore_Api_Dtos_UpdateGameDto_

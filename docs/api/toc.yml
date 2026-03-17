@@ -1,5 +1,22 @@
 ### YamlMime:TableOfContent
 items:
+- uid: GameStore.Api.Data
+  name: GameStore.Api.Data
+  type: Namespace
+  items:
+  - uid: GameStore.Api.Data.DataExtensions
+    name: DataExtensions
+    type: Class
+  - uid: GameStore.Api.Data.GameStoreContext
+    name: GameStoreContext
+    type: Class
+- uid: GameStore.Api.Data.Migrations
+  name: GameStore.Api.Data.Migrations
+  type: Namespace
+  items:
+  - uid: GameStore.Api.Data.Migrations.InitialCreate
+    name: InitialCreate
+    type: Class
 - uid: GameStore.Api.Dtos
   name: GameStore.Api.Dtos
   type: Namespace
@@ -19,6 +36,16 @@ items:
   items:
   - uid: GameStore.Api.Endpoints.GamesEndpoints
     name: GamesEndpoints
+    type: Class
+- uid: GameStore.Api.Models
+  name: GameStore.Api.Models
+  type: Namespace
+  items:
+  - uid: GameStore.Api.Models.Game
+    name: Game
+    type: Class
+  - uid: GameStore.Api.Models.Genre
+    name: Genre
     type: Class
 - uid: GameStore.Api.Services
   name: GameStore.Api.Services
