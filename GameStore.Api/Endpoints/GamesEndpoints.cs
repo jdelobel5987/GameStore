@@ -1,4 +1,6 @@
+using GameStore.Api.Data;
 using GameStore.Api.Dtos; // les DTOs
+using GameStore.Api.Models;
 using GameStore.Api.Services; // service pour la logique métier
 
 namespace GameStore.Api.Endpoints;
@@ -52,20 +54,30 @@ public static class GamesEndpoints
     /// Creates a new game entry.
     /// </summary>
     /// <param name="newGame">The details of the new game to create.</param>
+    /// <param name="dbContext">The database context for accessing the data store.</param>
     /// <returns>The created game.</returns>
-    public static IResult CreateGame(CreateGameDto newGame)
+    public static IResult CreateGame(CreateGameDto newGame, GameStoreContext dbContext)
         {
-            GameDto game = new GameDto(
-                GameService.NextId(games),
-                newGame.Name,
-                newGame.Genre,
-                newGame.Price,
-                newGame.ReleaseDate
+            Game game = new Game()
+            {
+                Name = newGame.Name,
+                GenreID = newGame.GenreId,
+                Price = newGame.Price,
+                ReleaseDate = newGame.ReleaseDate
+            };
+
+            dbContext.Games.Add(game);
+            dbContext.SaveChanges();
+
+            GameDetailsDto gameDto = new GameDetailsDto(
+                game.Id,
+                game.Name,
+                game.GenreID,
+                game.Price,
+                game.ReleaseDate
             );
 
-            games.Add(game);
-
-            return Results.CreatedAtRoute(GetGameEndpointName, new { id = game.Id }, game);
+            return Results.CreatedAtRoute(GetGameEndpointName, new { id = gameDto.Id }, gameDto);
         }    
 
     /// <summary>
