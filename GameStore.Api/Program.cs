@@ -37,6 +37,7 @@ if (app.Environment.IsDevelopment())
 // app.UseHttpsRedirection();
 
 app.MapGamesEndpoints(); // map les endpoints de jeux depuis la classe GamesEndpoints
+app.MapGenresEndpoints(); // map les endpoints de genres depuis la classe GenresEndpoints
 
 app.MigrateDb(); // applies any pending migrations to the DB (from Data\DataExtensions.cs)
 
