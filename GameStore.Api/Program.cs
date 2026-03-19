@@ -25,6 +25,17 @@ builder.Services.AddValidation();
 // Ajouter le contexte de données
 builder.AddGameStoreDb(); 
 
+// Ajouter CORS pour autoriser les requêtes depuis le frontend React
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ReactApp",policy =>
+    {
+        policy.WithOrigins("http://localhost:5173") // URL du frontend React
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Activer Swagger
@@ -40,5 +51,7 @@ app.MapGamesEndpoints(); // map les endpoints de jeux depuis la classe GamesEndp
 app.MapGenresEndpoints(); // map les endpoints de genres depuis la classe GenresEndpoints
 
 app.MigrateDb(); // applies any pending migrations to the DB (from Data\DataExtensions.cs)
+
+app.UseCors("ReactApp");
 
 app.Run(); 
